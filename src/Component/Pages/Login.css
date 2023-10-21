@@ -1,0 +1,45 @@
+.log-in{
+height: 550px;
+}
+.log-in .box{
+    width: 30%;
+    border: 2px solid rgb(0, 0, 0);
+    margin-top: 45px;
+    margin-left: 566px;
+    height: 480px;
+}
+.log-in .box h1{
+    margin: 0px;
+}
+.log-in .box .user{
+    margin-left: 40px;
+}
+.log-in .box .pass{
+    margin-left: 40px;
+}
+.log-in .box p{
+    margin-top: 15px;
+    font-size: 40px;
+    font-weight: lighter;
+}
+.log-in .box input{
+    width: 300px;
+    height: 40px;
+}
+.log-in .box button{
+    padding: 3px 18px;
+    margin-top: 30px;
+    margin-left: 41px;
+    font-size: 22px;
+    position: relative;
+    top: 74px;
+    right: 174px;
+}
+
+    .log-in .box .select{
+        padding: 13px 14px;
+        /* margin: 42px; */
+        position: relative;
+        margin-top: 32px;
+        margin-left: 42px;
+    }

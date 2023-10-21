@@ -1,0 +1,10 @@
+.table-h1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 21px;
+}
+.table-h1 h1{
+    margin: 0px;
+    font-size: 60px;
+}

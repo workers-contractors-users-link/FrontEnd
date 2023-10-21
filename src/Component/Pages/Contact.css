@@ -1,0 +1,119 @@
+.contact-us{
+    width: 100%;
+    height: 650px;
+}
+.contact-us .contact{
+   width: 66%;
+   margin-left: 20%;
+   margin-top: 3%;
+   border: 1px solid #000;
+   height: 600px;
+}
+.contact-us .contact:hover{
+   background-color: #ededed;
+   cursor: pointer;
+   border: 2px solid #000;
+   box-shadow: 6px 7px 30px #000, -10px -10px #fff;
+}
+
+ .contact-us .contact h1{
+    margin-bottom: 0px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    font-size: 45px;
+    font-weight: 500;
+ }
+ .contact-us .contact .contact-name{
+    display: flex;
+    height: 100px;
+    align-items: center;
+    justify-content: space-evenly;
+ }
+ .contact-us .contact .contact-name .name p{
+    margin-bottom: 10px;
+     font-size: 25px;
+     font-weight: 100;
+    }
+.contact-us .contact .contact-name .email p {
+    margin-bottom: 10px;
+     font-size: 25px;
+     font-weight: 100;
+}
+ .contact-us .contact .contact-name .name input{
+    width: 400px;
+    padding: 4px 18px;
+    height: 44px;
+    border: 1px solid #000;
+   }
+   .contact-us .contact .contact-name .name input:hover{
+      outline:inset;
+
+   }
+   .contact-us .contact .contact-no{
+     height: 85px;
+    }
+.contact-us .contact .email input{
+   width: 400px;
+   padding: 4px 18px;
+   height: 44px;
+   border: 1px solid #000;
+
+}
+.contact-us .contact .email input:hover{
+   outline:inset;
+   
+}
+.contact-us .contact .contact-no p{
+   margin: 10px 0px;
+   font-size: 22px;
+    font-weight: lighter;
+    margin-left: 66px;
+   }
+   .contact-us .contact .contact-no input{
+      width: 868px;
+      padding: 4px 18px;
+      height: 44px;
+      border: 1px solid #000;
+    margin-left: 64px;
+   }
+   .contact-us .contact .contact-no input:hover{
+      outline: inset;
+
+   }
+   .contact-us .contact .contact-message{
+      height: 85px;
+   }
+   .contact-us .contact .contact-message p{
+      margin: 10px 0px;
+      font-size: 22px;
+      font-weight: lighter;
+      margin-left: 66px;
+   }
+   .contact-us .contact .contact-message textarea{
+      width: 868px;
+      padding: 4px 18px;
+      height: 180px;
+      border: 1px solid #000;
+      margin-left: 64px;
+   }
+   .contact-us .contact .contact-message textarea:hover{
+      
+      outline: inset;
+   }
+   .contact-us .contact button{
+      position: relative;
+      top: 158px;
+      padding: 13px 30px;
+      margin: 3px 8px;
+      margin-left: 21px;
+      font-size: 18px;
+      margin-left: 66px;
+      outline: none;
+      border: 2px solid #027b03;
+      background-color: aquamarine;
+   }
+   .contact-us .contact button:hover{
+      outline:inset;
+      background-color: aquamarine;
+   }
