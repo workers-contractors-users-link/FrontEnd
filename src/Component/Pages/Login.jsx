@@ -3,6 +3,7 @@ import Navbar from "../Navbar/Navbar";
 import { useState } from "react";
 import axios from "axios"; // Import axios
 import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { useStateContext } from "../../context/context";
 
 const baseUrl = "https://back-end-ty14.vercel.app/api/auth";
 const baseUrl2 = "http://localhost:8080/api/auth";
@@ -14,6 +15,7 @@ function Login() {
         type: "",
     });
 
+    const { user } = useStateContext();
     const navigate = useNavigate(); // Use useNavigate to handle navigation
 
     const handleChange = (event) => {
@@ -46,6 +48,11 @@ function Login() {
                 );
             }
             console.log(response);
+            user.name = response.data.user.name;
+            user.email = response.data.user.email;
+            user.phoneNumber = response.data.user.phoneNumber;
+            user.address = response.data.user.address;
+            user.kycVerified = response.data.user.kycVerified;
             localStorage.setItem("token", response.data?.token);
             localStorage.setItem("type", response.data?.user.type);
             alert(response.data.msg);
