@@ -1,8 +1,11 @@
 import "./Register.css";
+import { ethers } from "ethers";
 import axios from "axios";
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom"; // Use useNavigate instead of useHistory
 import Navbar from "../Navbar/Navbar";
+import userRegistrationContract from "../../ContractInfo/UserRegistrationContract"
+
 
 function Register() {
     const [form, setForm] = useState({
@@ -33,18 +36,23 @@ function Register() {
             password: form.password,
             phoneNumber: form.phoneNumber,
             address: form.address,
-            ethAddress: form.ethAddress,
+            ethAddress: window.ethereum.selectedAddress,
         };
 
+        let role
+
         console.log(requestBody);
+
         let response;
         try {
             if (form.type === "client") {
+                role = 0
                 response = await axios.post(
                     "https://back-end-ty14.vercel.app/api/auth/client/signup",
                     requestBody
                 );
-            } else if (form.type === "constructor") {
+            } else if (form.type === "contractor") {
+                role = 1
                 response = await axios.post(
                     "https://back-end-ty14.vercel.app/api/auth/contractor/signup",
                     requestBody
@@ -55,7 +63,14 @@ function Register() {
             alert(error.response.data.msg);
             window.location.reload();
         }
+
+        console.log(response);
+        console.log("-------------------------------------");
         const userId = response.data.userId;
+        console.log(userId);
+        console.log("-------------------------------------");
+
+        
 
         alert(response.data.msg);
         navigate("/login");
@@ -139,10 +154,10 @@ function Register() {
                         <p>Wallet Address</p>
                         <input
                             type="text"
-                            value={form.ethAddress}
+                            value={window.ethereum.selectedAddress}
+                            onChange={(e) => handleChange(e)}
                             name="ethAddress"
                             placeholder="Enter Wallet Address here.."
-                            onChange={(e) => handleChange(e)}
                         />
                     </div>
 
@@ -153,7 +168,7 @@ function Register() {
                         className="select"
                     >
                         <option value="client">Client</option>
-                        <option value="constructor">Constructor</option>
+                        <option value="contractor">Contractor</option>
                     </select>
 
                     <button onClick={handleClick}>Register</button>
