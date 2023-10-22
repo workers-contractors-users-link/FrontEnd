@@ -4,8 +4,7 @@ import axios from "axios";
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom"; // Use useNavigate instead of useHistory
 import Navbar from "../Navbar/Navbar";
-import userRegistrationContract from "../../ContractInfo/UserRegistrationContract"
-
+import userRegistrationContract from "../../ContractInfo/UserRegistrationContract";
 
 function Register() {
     const [form, setForm] = useState({
@@ -36,23 +35,24 @@ function Register() {
             password: form.password,
             phoneNumber: form.phoneNumber,
             address: form.address,
-            ethAddress: window.ethereum.selectedAddress,
+            ethAddress: form.ethAddress,
         };
 
-        let role
+        if (!form.type) {
+            alert("Please fill the form correctly");
+            window.location.reload();
+        }
 
         console.log(requestBody);
 
         let response;
         try {
             if (form.type === "client") {
-                role = 0
                 response = await axios.post(
                     "https://back-end-ty14.vercel.app/api/auth/client/signup",
                     requestBody
                 );
             } else if (form.type === "contractor") {
-                role = 1
                 response = await axios.post(
                     "https://back-end-ty14.vercel.app/api/auth/contractor/signup",
                     requestBody
@@ -69,8 +69,6 @@ function Register() {
         const userId = response.data.userId;
         console.log(userId);
         console.log("-------------------------------------");
-
-        
 
         alert(response.data.msg);
         navigate("/login");
@@ -167,6 +165,9 @@ function Register() {
                         name="type"
                         className="select"
                     >
+                        <option value="" disabled selected hidden>
+                            Please Role...
+                        </option>
                         <option value="client">Client</option>
                         <option value="contractor">Contractor</option>
                     </select>

@@ -94,6 +94,9 @@ function Login() {
                         name="type"
                         className="select"
                     >
+                        <option value="" disabled selected hidden>
+                            Please Role...
+                        </option>
                         <option value="client">Client</option>
                         <option value="constructor">Constructor</option>
                     </select>
